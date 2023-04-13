@@ -27,7 +27,7 @@ class checker:
         system("cls")
         while True:
             system('title ^| Made By Sophi#9106.')
-            self.username = ''.join(choices('abcdefghijklmnopqrstuvwxyz', k=int(self.amt)))
+            self.username = open('usernames.txt').read()
             headers = {
                 'Accept': '*/*',
                 'Sec-Fetch-Mode': 'cors',
@@ -51,6 +51,8 @@ class checker:
                 response = post('https://accounts.api.playstation.com/api/v1/accounts/onlineIds', headers=headers, json=json_data)
                 if response.status_code == 201:
                     print(f"{Color.BRIGHT_CYAN}[+] {Color.CYAN}Available {self.username}")
+                    with open('Available.txt', 'a+') as f:
+                        f.write(self.username + '\n')
                     self.available += 1
 
                 #if self.letters in self.username:
