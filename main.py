@@ -67,8 +67,4 @@ class checker:
                         self.main()
             except Exception as e:
                 print(e)
-    def thr(self):
-        for _ in range(10):
-            Thread(target=self.main)
-
-checker().thr()
+checker().main()
