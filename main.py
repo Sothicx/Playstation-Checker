@@ -1,3 +1,4 @@
+import webbrowser
 from os import system
 from time import sleep
 from requests import post
@@ -25,7 +26,7 @@ class checker:
 
     def main(self):
         system("cls")
-
+        webbrowser.open('https://discord.gg/tmV3XpxkFJ')
         while True:
             self.username = open('usernames.txt').read().splitlines()
             for user in self.username:
