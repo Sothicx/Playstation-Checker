@@ -26,9 +26,10 @@ class checker:
 
     def main(self):
         system("cls")
-        webbrowser.open('https://discord.gg/tmV3XpxkFJ')
         while True:
             self.username = open('usernames.txt').read().splitlines()
+            proxy = choice(open('proxies.txt', 'r').read().splitlines())
+            proxies = {'http': f'http://{proxy}', 'http': f'http://{proxy}'}
             for user in self.username:
                 system('title ^| Made By Sophi#9106.')
                 if user not in self.name:
@@ -53,7 +54,7 @@ class checker:
                         'reserveIfAvailable': True,
                     }
                     try:
-                        response = post('https://accounts.api.playstation.com/api/v1/accounts/onlineIds', headers=headers, json=json_data)
+                        response = post('https://accounts.api.playstation.com/api/v1/accounts/onlineIds', headers=headers, json=json_data, proxies=proxies)
                         if response.status_code == 201:
                             print(f"{Color.BRIGHT_CYAN}[+] {Color.CYAN}Available {user}")
                             with open('Available.txt', 'a+') as f:
